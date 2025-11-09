@@ -41,3 +41,5 @@ function createAsynFile_2(pathname: string) {
 }
 
 createAsynFile_2("./file2.txt");
+
+// *** It can create callbacak hell
