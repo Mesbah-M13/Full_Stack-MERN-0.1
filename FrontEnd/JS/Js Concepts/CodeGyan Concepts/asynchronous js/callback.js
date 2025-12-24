@@ -8,22 +8,22 @@ function checkInventory(callback) {
 function createOrder(callback) {
   setTimeout(() => {
     console.log("Create order🍵");
+    callback();
   }, 3000);
-  callback();
 }
 
 function chargePayment(callback) {
   setTimeout(() => {
     console.log("Calculating payment amount for the order 💲");
+    callback();
   }, 1000);
-  callback();
 }
 
 function orderInvoice(callback) {
   setTimeout(() => {
     console.log("Preparing invoice 🧾");
+    callback();
   }, 1000);
-  callback();
 }
 
 function main() {
