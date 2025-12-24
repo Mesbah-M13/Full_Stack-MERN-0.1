@@ -1,6 +1,7 @@
-function checkInventory() {
+function checkInventory(callback) {
   setTimeout(() => {
     console.log("Checking inventory...");
+    callback();
   }, 2000);
 }
 
@@ -23,10 +24,12 @@ function orderInvoice() {
 }
 
 function main() {
-  checkInventory();
-  createOrder();
-  chargePayment();
-  orderInvoice();
+  checkInventory(() => {
+    console.log("Callback is called");
+  });
+  // createOrder();
+  // chargePayment();
+  // orderInvoice();
   console.log("Process in going on");
 }
 
