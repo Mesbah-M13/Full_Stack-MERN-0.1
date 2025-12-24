@@ -5,27 +5,36 @@ function checkInventory(callback) {
   }, 2000);
 }
 
-function createOrder() {
+function createOrder(callback) {
   setTimeout(() => {
     console.log("Create order🍵");
   }, 3000);
+  callback();
 }
 
-function chargePayment() {
+function chargePayment(callback) {
   setTimeout(() => {
     console.log("Calculating payment amount for the order 💲");
   }, 1000);
+  callback();
 }
 
-function orderInvoice() {
+function orderInvoice(callback) {
   setTimeout(() => {
     console.log("Preparing invoice 🧾");
   }, 1000);
+  callback();
 }
 
 function main() {
   checkInventory(() => {
-    console.log("Callback is called");
+    createOrder(() => {
+      chargePayment(() => {
+        orderInvoice(() => {
+          console.log("All processes are done...");
+        });
+      });
+    });
   });
   // createOrder();
   // chargePayment();
