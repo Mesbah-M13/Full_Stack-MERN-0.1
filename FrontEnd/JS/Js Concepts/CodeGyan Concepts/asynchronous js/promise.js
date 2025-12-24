@@ -9,25 +9,47 @@ function checkInventory() {
 }
 
 function createOrder() {
-  setTimeout(() => {
-    console.log("Create order🍵");
-  }, 3000);
+  const promise = new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Create order🍵");
+      resolve();
+    }, 3000);
+  });
+  return promise;
 }
 
 function chargePayment() {
-  setTimeout(() => {
-    console.log("Calculating payment amount for the order 💲");
-  }, 1000);
+  const promise = new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Calculating payment amount for the order 💲");
+      resolve();
+    }, 1000);
+  });
+  return promise;
 }
 
 function orderInvoice() {
-  setTimeout(() => {
-    console.log("Preparing invoice 🧾");
-  }, 1000);
+  const promise = new Promise((reject) => {
+    setTimeout(() => {
+      console.log("Preparing invoice 🧾");
+      reject();
+    }, 1000);
+  });
+  return promise;
 }
 
 function main() {
-  checkInventory().then(() => console.log("Inventory checked done"));
+  checkInventory()
+    .then(createOrder)
+    .then(chargePayment)
+    .then(orderInvoice)
+    .then(() => {
+      console.log("Process is done");
+    })
+    .catch((err) => {
+      console.log(new Error());
+    });
+
   console.log("Process in going on");
 }
 
