@@ -29,10 +29,10 @@ function chargePayment() {
 }
 
 function orderInvoice() {
-  const promise = new Promise((reject) => {
+  const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("Preparing invoice 🧾");
-      reject();
+      reject(new Error());
     }, 1000);
   });
   return promise;
@@ -47,7 +47,7 @@ function main() {
       console.log("Process is done");
     })
     .catch((err) => {
-      console.log(new Error());
+      console.log("Issue detected", err);
     });
 
   console.log("Process in going on");
