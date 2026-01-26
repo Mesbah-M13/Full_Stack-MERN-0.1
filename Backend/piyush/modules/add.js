@@ -1,11 +1,16 @@
-function add(n1, n2) {
-  return n1 + n2;
-}
-function sub(n1, n2) {
-  return n1 - n2;
-}
+// function add(n1, n2) {
+//   return n1 + n2;
+// }
+// function sub(n1, n2) {
+//   return n1 - n2;
+// }
 
-module.exports = {
-  add,
-  sub,
-};
+//default export
+// module.exports = {
+//   add,
+//   sub,
+// };
+
+// multi exports
+exports.add = (a, b) => a + b;
+exports.sub = (a, b) => a - b;
