@@ -7,3 +7,6 @@ console.log("Date appended & copied successfully");
 
 fs.unlinkSync("./copyFile.txt");
 console.log("data deleted ....");
+
+const stat = fs.statSync("./newFile.txt");
+console.log(stat);
